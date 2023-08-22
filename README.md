@@ -39,4 +39,64 @@ Ultimately, this study aims to improve the Airbnb experience for both hosts and 
 
 <center>Figure 1. Inside Airbnb Logo</center>
 
+**Inside Airbnb Database**
+
+This dataset is available in the jojie public dataset repository. It contains Listings. Below is a quick summary of the database contents.
+
+Filepath: /mnt/data/public/insideairbnb
+
+**Database Summary:**
+- Listings data for various cities around the world on the Airbnb platform
+- Includes information on location, property type, price, availability, and occupancy rates of Airbnb listings.
+- Host data includes several properties managed, reviews, and response rates.
+- Valuable resource for studying the impact of the sharing economy on urban housing markets and communities.
+- Each City/State has its own detailed `Listings Data`, `Calendar Data`, `Review Data`, and `Neighborhood Data`.
+- Created by Murray Cox to help understand the impact of Airbnb on local housing markets and communities.
+
+**Original Data Source**
+
+The dataset can be downloaded from the Inside Airbnb website: http://insideairbnb.com/get-the-data/
+
+<h3>Calendar Dataset</h3>
+
+Among the various datasets in the database, this project focuses on the calendar dataset which provides a detailed view of the availability and pricing for each Airbnb listing over time. It includes information on when each listing is available, how much it costs per night, and any minimum stay requirements.
+
+</br>
+
+<span style="font-size: 14px">
+    <center><b>Table 1. Calendar Raw Data Description</b></center>
+</span>
+
+|<center>Variable Name</center>|<center>Data type</center>|<center>Variable Caterogy</center>|<center>Description</center>
+|:--------------------|:------|:---|:---|
+|listing_id           |integer |nominal    |Airbnb's unique identifier for the listing
+|date                 |datetime|datetime   |The date in the listing's calendar
+|available            |boolean |binary     |Whether the date is available for a booking
+|price                |currency|continuous |The price listed for the day
+
+</br>
+To extract more meaningful insights, the raw data underwent a comprehensive processing phase where additional features were extracted from the listing data.
+
+
+</br>
+</br>
+
+<span style="font-size: 14px">
+    <center><b>Table 2. Calendar Final Data Description</b></center>
+</span>
+
+|<center>Variable Name</center>|<center>Data type</center>|<center>Variable Caterogy</center>|<center>Description</center>
+|:--------------------|:------|:---|:---|
+|listing_id           |integer |nominal    |Airbnb's unique identifier for the listing
+|date                 |datetime|datetime   |The date in the listing's calendar
+|available            |boolean |binary     |Whether the date is available for a booking
+|price                |currency|continuous |The price listed for the day
+|adjusted price       |currency|continuous |Reflects the true cost of each listing
+|minimum_nights       |integer |continuous |Minimum number of night stay for the listing
+|minimum_nights       |integer |continuous |Maximum number of night stays for the listing
+|year                 |integer |ordinal    |The year corresponding to the date column.
+|month                |string  |ordinal    |The month corresponding to the date column.
+|dayofweek            |string  |ordinal    |The day of the week corresponding to the date column.
+|country              |string  |nominal    |The country where the Airbnb is listed.
+
 **Read Full Content in the included notebook**
